@@ -1,0 +1,16 @@
+model:
+  num_classes: 5
+  classes: ["concrete", "brick", "metal", "wood", "stone"]
+data:
+  data_dir: "data/synthetic/"
+training:
+  batch_size: 32
+  weighted_loss: true
+  phase1_epochs: 5
+  phase1_lr: 0.001
+  phase2_epochs: 15
+  phase2_lr: 0.0001
+  phase3_epochs: 5
+  phase3_lr: 0.00001
+checkpointing:
+  output_dir: "checkpoints/"

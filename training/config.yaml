@@ -1,0 +1,50 @@
+model:
+  num_classes: 5
+  dropout: 0.2
+  pretrained: true
+  classes: ["concrete", "brick", "metal", "wood", "stone"]
+
+data:
+  data_dir: "data/synthetic/"  # Change to data/processed/ for real data
+  image_size: 224
+  num_workers: 2
+  pin_memory: true
+
+training:
+  batch_size: 32
+  weighted_loss: true
+  # Phase 1: frozen backbone
+  phase1_epochs: 5
+  phase1_lr: 1.0e-3
+  # Phase 2: last 2 blocks unfrozen
+  phase2_epochs: 15
+  phase2_lr: 1.0e-4
+  # Phase 3: full fine-tune
+  phase3_epochs: 5
+  phase3_lr: 1.0e-5
+  optimizer: "Adam"
+  weight_decay: 1.0e-4
+  seed: 42
+
+qat:
+  backend: "fbgemm"  # "qnnpack" for ARM/Mobile
+  fine_tune_epochs: 10
+  lr: 1.0e-5
+  prune_ratio: 0.3
+  prune_target_blocks: [7, 8]
+
+knowledge_distillation:
+  teacher: "resnet50"
+  alpha: 0.7
+  temperature: 4.0
+  epochs: 15
+  lr: 1.0e-4
+
+checkpointing:
+  output_dir: "checkpoints/"
+  keep_top_k: 3
+  monitor: "val_accuracy"
+
+logging:
+  tensorboard: true
+  log_dir: "runs/"

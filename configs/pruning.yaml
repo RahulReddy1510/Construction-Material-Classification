@@ -1,0 +1,13 @@
+model:
+  num_classes: 5
+  classes: ["concrete", "brick", "metal", "wood", "stone"]
+data:
+  data_dir: "data/synthetic/"
+qat:
+  backend: "fbgemm"
+  fine_tune_epochs: 5
+  lr: 0.000005
+  prune_ratio: 0.3
+  prune_target_blocks: [7, 8]
+checkpointing:
+  output_dir: "checkpoints/"
