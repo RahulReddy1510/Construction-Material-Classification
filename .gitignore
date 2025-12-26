@@ -162,3 +162,8 @@ deployment/model.onnx
 *.pth
 *.pt
 *.onnx
+
+# Temp test/script output
+pytest_output.txt
+git_log_raw.txt
+
