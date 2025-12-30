@@ -40,8 +40,8 @@ from datetime import datetime, timedelta, timezone
 BRANCH = "master"
 
 # Target timeline  (both inclusive)
-START_DATE = datetime(2025, 6, 2,  9, 0, 0, tzinfo=timezone.utc)
-END_DATE   = datetime(2026, 2, 20, 18, 0, 0, tzinfo=timezone.utc)
+START_DATE = datetime(2025, 9, 1,  9, 0, 0, tzinfo=timezone.utc)
+END_DATE   = datetime(2025, 12, 31, 18, 0, 0, tzinfo=timezone.utc)
 
 # Offset to add to every generated time (simulate local +04:00 timezone)
 TZ_OFFSET_HOURS = 4   # Asia/Dubai / Gulf Standard Time
@@ -135,7 +135,7 @@ def rewrite_history(commits, new_dates, dry_run=False):
 
     # Step 1: Export history to fast-import format
     export_result = run(
-        ["git", "fast-export", "--all", "--no-data=inline"],
+        ["git", "fast-export", "--all", "--no-data"],
         capture_output=True,
     )
     raw = export_result.stdout.decode(errors="replace")

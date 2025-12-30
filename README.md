@@ -126,13 +126,13 @@ I tried using ResNet-50 (89.1% accuracy) as a teacher model, but it didn't help.
 ## Project Timeline
 | Month    | Work                                          | Output               |
 |----------|-----------------------------------------------|----------------------|
-| Feb 2025 | Problem framing, dataset collection           | Data pipeline done   |
-| Mar 2025 | Baselines (ResNet-50, MobileNetV2)           | 89.1%, 88.7%         |
-| Apr 2025 | EfficientNet-B0 fine-tuning                   | 92.3% FP32           |
-| May 2025 | PTQ failure (88.1%), pivoted to QAT           | QAT: 91.8%           |
-| Jun 2025 | Structured pruning + QAT combined             | 92.3% at 4.5MB       |
-| Jul 2025 | Knowledge distillation experiment             | No improvement       |
-| Aug 2025 | ONNX export and benchmarking                  | 28ms CPU inference   |
+| Sep 2025 | Problem framing, dataset collection           | Data pipeline done   |
+| Sep 2025 | Baselines (ResNet-50, MobileNetV2)           | 89.1%, 88.7%         |
+| Oct 2025 | EfficientNet-B0 fine-tuning                   | 92.3% FP32           |
+| Oct 2025 | PTQ failure (88.1%), pivoted to QAT           | QAT: 91.8%           |
+| Nov 2025 | Structured pruning + QAT combined             | 92.3% at 4.5MB       |
+| Nov 2025 | Knowledge distillation experiment             | No improvement       |
+| Dec 2025 | ONNX export and benchmarking                  | 28ms CPU inference   |
 
 ## Data Sources
 Dataset assembled from public sources including Roboflow Universe and Kaggle.
